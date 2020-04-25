@@ -1,3 +1,5 @@
+#Задание 4
+
 from random import choices
 from collections import Counter
 
@@ -14,21 +16,31 @@ print(list_2)
 #2. Напишите функцию вывода самого частого имени из списка на выходе функции F;
 
 dict = {}
-for i in range(len(list_2)):
-    dict[list_2[i]] = list_2.count(list_2[i])
-frequent = Counter(dict).most_common(1)
-print (frequent)
+#for i in range(len(list_2)):
+    #dict[list_2[i]] = list_2.count(list_2[i])
+#frequent = Counter(dict).most_common(1)
+#print (frequent)
+def most_frequent(list_2):
+    counter = 0
+    num = list_2[0]
+    for i in list_2:
+        most_frequent = list_2.count(i)
+    if(most_frequent > counter):
+        counter = most_frequent
+        num = i
+    return num
+print(most_frequent(list_2))
 
 #3. Напишите функцию вывода самой редкой буквы, с которого начинаются имена
 #в списке на выходе функции F.
 
-characters = []
-for word in list_2:
-    characters += word[0]
-
-characters_dict = {}
-
-for character in characters:
-    characters_dict[character] = characters.count(character)
-
-print(list(characters_dict)[-1])
+def unique(list_2):
+    list_unique = []
+    for k in list_2:
+        list_unique += k[0]
+        for i in list_unique:
+            dict[i] = list_unique.count(i)
+        list_unique = list(dict.items())
+        list_unique.sort(key=lambda i: i[1])
+        return (list_unique[0][0])
+print(unique(list_2))
